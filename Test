@@ -195,6 +195,9 @@ M9.Image = "rbxassetid://2790389767"
 M9.ImageColor3 = Color3.fromRGB(35, 35, 35)
 M9.ScaleType = Enum.ScaleType.Slice
 M9.SliceCenter = Rect.new(8, 8, 248, 248)
+M9.MouseButton1Click:connect(function()
+	Workspace.Remote.ItemHandler:InvokeServer(Workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+end)
 
 TextLabel_6.Parent = M9
 TextLabel_6.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -218,6 +221,9 @@ Remington870.Image = "rbxassetid://2790389767"
 Remington870.ImageColor3 = Color3.fromRGB(35, 35, 35)
 Remington870.ScaleType = Enum.ScaleType.Slice
 Remington870.SliceCenter = Rect.new(8, 8, 248, 248)
+Remington870.MouseButton1Click:connect(function()
+	Workspace.Remote.ItemHandler:InvokeServer(Workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+end)
 
 TextLabel_7.Parent = Remington870
 TextLabel_7.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -241,6 +247,9 @@ AK47.Image = "rbxassetid://2790389767"
 AK47.ImageColor3 = Color3.fromRGB(35, 35, 35)
 AK47.ScaleType = Enum.ScaleType.Slice
 AK47.SliceCenter = Rect.new(8, 8, 248, 248)
+AK47.MouseButton1Click:connect(function()
+	Workspace.Remote.ItemHandler:InvokeServer(Workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+end)
 
 TextLabel_8.Parent = AK47
 TextLabel_8.AnchorPoint = Vector2.new(0.5, 0.5)

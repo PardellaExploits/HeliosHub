@@ -1,0 +1,300 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local HeliosHub = Instance.new("ScreenGui")
+local Main = Instance.new("ImageButton")
+local Bar = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
+local LocalPlayerFrame = Instance.new("ImageButton")
+local Button = Instance.new("ImageButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local Button_2 = Instance.new("ImageButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local Guns = Instance.new("ImageButton")
+local TextLabel_4 = Instance.new("TextLabel")
+local LocalPlayer = Instance.new("ImageButton")
+local TextLabel_5 = Instance.new("TextLabel")
+local GunsFrame = Instance.new("ImageButton")
+local M9 = Instance.new("ImageButton")
+local TextLabel_6 = Instance.new("TextLabel")
+local Remington870 = Instance.new("ImageButton")
+local TextLabel_7 = Instance.new("TextLabel")
+local AK47 = Instance.new("ImageButton")
+local TextLabel_8 = Instance.new("TextLabel")
+
+--Properties:
+
+HeliosHub.Name = "HeliosHub"
+HeliosHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HeliosHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = HeliosHub
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.Position = UDim2.new(0.0921843648, 0, 0.312243223, 0)
+Main.Size = UDim2.new(0, 678, 0, 394)
+Main.Image = "rbxassetid://2790382281"
+Main.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Main.ScaleType = Enum.ScaleType.Slice
+Main.SliceCenter = Rect.new(4, 4, 252, 252)
+
+Bar.Name = "Bar"
+Bar.Parent = Main
+Bar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Bar.BackgroundTransparency = 1.000
+Bar.Position = UDim2.new(0.0130333919, 0, 0.155314565, 0)
+Bar.Size = UDim2.new(0, 157, 0, 5)
+Bar.Image = "rbxassetid://2790390993"
+Bar.ImageColor3 = Color3.fromRGB(45, 45, 45)
+Bar.ScaleType = Enum.ScaleType.Slice
+Bar.SliceCenter = Rect.new(16, 16, 240, 240)
+
+TextLabel.Parent = Main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.Position = UDim2.new(-0.000240989961, 0, 0.0632802099, 0)
+TextLabel.Size = UDim2.new(0, 176, 0, 36)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Helios Hub"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 30.000
+
+LocalPlayerFrame.Name = "LocalPlayerFrame"
+LocalPlayerFrame.Parent = Main
+LocalPlayerFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LocalPlayerFrame.BackgroundTransparency = 1.000
+LocalPlayerFrame.Position = UDim2.new(0.256379068, 0, 0.0337972119, 0)
+LocalPlayerFrame.Size = UDim2.new(0, 495, 0, 369)
+LocalPlayerFrame.Image = "rbxassetid://2790382281"
+LocalPlayerFrame.ImageColor3 = Color3.fromRGB(45, 45, 45)
+LocalPlayerFrame.ScaleType = Enum.ScaleType.Slice
+LocalPlayerFrame.SliceCenter = Rect.new(4, 4, 252, 252)
+
+Button.Name = "Button"
+Button.Parent = LocalPlayerFrame
+Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Button.BackgroundTransparency = 1.000
+Button.Position = UDim2.new(0.0545454547, 0, 0.0433604419, 0)
+Button.Size = UDim2.new(0, 453, 0, 40)
+Button.Image = "rbxassetid://2790389767"
+Button.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Button.ScaleType = Enum.ScaleType.Slice
+Button.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_2.Parent = Button
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.504043818, 0, 0.474999994, 0)
+TextLabel_2.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_2.Font = Enum.Font.GothamSemibold
+TextLabel_2.Text = "Fly 'T'"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+
+Button_2.Name = "Button"
+Button_2.Parent = LocalPlayerFrame
+Button_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Button_2.BackgroundTransparency = 1.000
+Button_2.Position = UDim2.new(0.0545454547, 0, 0.168021679, 0)
+Button_2.Size = UDim2.new(0, 453, 0, 40)
+Button_2.Image = "rbxassetid://2790389767"
+Button_2.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Button_2.ScaleType = Enum.ScaleType.Slice
+Button_2.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_3.Parent = Button_2
+TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.490222156, 0, 0.5, 0)
+TextLabel_3.Size = UDim2.new(0.979820609, -5, 1, -5)
+TextLabel_3.Font = Enum.Font.GothamSemibold
+TextLabel_3.Text = "Noclip 'E'"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 14.000
+
+Guns.Name = "Guns"
+Guns.Parent = Main
+Guns.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Guns.BackgroundTransparency = 1.000
+Guns.Position = UDim2.new(0.00442477874, 0, 0.187817261, 0)
+Guns.Size = UDim2.new(0, 167, 0, 40)
+Guns.Image = "rbxassetid://2790382281"
+Guns.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Guns.ScaleType = Enum.ScaleType.Slice
+Guns.SliceCenter = Rect.new(4, 4, 252, 252)
+Guns.MouseButton1Click:connect(function()
+	LocalPlayerFrame.Visible = false;
+	GunsFrame.Visible = true;
+end)
+
+TextLabel_4.Parent = Guns
+TextLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.500059843, 0, 0.49999994, 0)
+TextLabel_4.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_4.Font = Enum.Font.GothamSemibold
+TextLabel_4.Text = "🔫 Guns"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextSize = 14.000
+
+LocalPlayer.Name = "LocalPlayer"
+LocalPlayer.Parent = Main
+LocalPlayer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LocalPlayer.BackgroundTransparency = 1.000
+LocalPlayer.Position = UDim2.new(0.0121730929, 0, 0.288814634, 0)
+LocalPlayer.Size = UDim2.new(0, 157, 0, 40)
+LocalPlayer.Image = "rbxassetid://2790382281"
+LocalPlayer.ImageColor3 = Color3.fromRGB(35, 35, 35)
+LocalPlayer.ScaleType = Enum.ScaleType.Slice
+LocalPlayer.SliceCenter = Rect.new(4, 4, 252, 252)
+LocalPlayer.MouseButton1Click:connect(function()
+	LocalPlayerFrame.Visible = true;
+	GunsFrame.Visible = false;
+end)
+
+TextLabel_5.Parent = LocalPlayer
+TextLabel_5.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.494595766, 0, 0.49999994, 0)
+TextLabel_5.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_5.Font = Enum.Font.GothamSemibold
+TextLabel_5.Text = "👤 Local Player"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextSize = 14.000
+
+GunsFrame.Name = "GunsFrame"
+GunsFrame.Parent = Main
+GunsFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GunsFrame.BackgroundTransparency = 1.000
+GunsFrame.Position = UDim2.new(0.256379068, 0, 0.0337972045, 0)
+GunsFrame.Size = UDim2.new(0, 495, 0, 369)
+GunsFrame.Image = "rbxassetid://2790382281"
+GunsFrame.ImageColor3 = Color3.fromRGB(45, 45, 45)
+GunsFrame.ScaleType = Enum.ScaleType.Slice
+GunsFrame.SliceCenter = Rect.new(4, 4, 252, 252)
+
+M9.Name = "M9"
+M9.Parent = GunsFrame
+M9.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+M9.BackgroundTransparency = 1.000
+M9.Position = UDim2.new(0.0545454547, 0, 0.0433604345, 0)
+M9.Size = UDim2.new(0, 452, 0, 40)
+M9.Image = "rbxassetid://2790389767"
+M9.ImageColor3 = Color3.fromRGB(35, 35, 35)
+M9.ScaleType = Enum.ScaleType.Slice
+M9.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_6.Parent = M9
+TextLabel_6.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.502242148, 0, 0.5, 0)
+TextLabel_6.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_6.Font = Enum.Font.GothamSemibold
+TextLabel_6.Text = "M9"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextSize = 14.000
+
+Remington870.Name = "Remington 870"
+Remington870.Parent = GunsFrame
+Remington870.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Remington870.BackgroundTransparency = 1.000
+Remington870.Position = UDim2.new(0.0545454547, 0, 0.168021679, 0)
+Remington870.Size = UDim2.new(0, 452, 0, 40)
+Remington870.Image = "rbxassetid://2790389767"
+Remington870.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Remington870.ScaleType = Enum.ScaleType.Slice
+Remington870.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_7.Parent = Remington870
+TextLabel_7.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.Position = UDim2.new(0.493273556, 0, 0.5, 0)
+TextLabel_7.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_7.Font = Enum.Font.GothamSemibold
+TextLabel_7.Text = "Remington 870"
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextSize = 14.000
+
+AK47.Name = "AK-47"
+AK47.Parent = GunsFrame
+AK47.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+AK47.BackgroundTransparency = 1.000
+AK47.Position = UDim2.new(0.0545454547, 0, 0.29539296, 0)
+AK47.Size = UDim2.new(0, 452, 0, 40)
+AK47.Image = "rbxassetid://2790389767"
+AK47.ImageColor3 = Color3.fromRGB(35, 35, 35)
+AK47.ScaleType = Enum.ScaleType.Slice
+AK47.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_8.Parent = AK47
+TextLabel_8.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.BorderSizePixel = 0
+TextLabel_8.Position = UDim2.new(0.497757822, 0, 0.5, 0)
+TextLabel_8.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_8.Font = Enum.Font.GothamSemibold
+TextLabel_8.Text = "AK-47"
+TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.TextSize = 14.000
+
+-- Scripts:
+
+local function CBGBVXV_fake_script() -- Main.Dragify 
+	local script = Instance.new('LocalScript', Main)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0.50
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.30), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(CBGBVXV_fake_script)()

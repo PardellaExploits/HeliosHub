@@ -420,6 +420,41 @@ ModAllGuns.Image = "rbxassetid://2790389767"
 ModAllGuns.ImageColor3 = Color3.fromRGB(35, 35, 35)
 ModAllGuns.ScaleType = Enum.ScaleType.Slice
 ModAllGuns.SliceCenter = Rect.new(8, 8, 248, 248)
+ModAllGuns.MouseButton1Down:connect(function()
+local newcclosure = newcclosure or function(f)
+    return f
+end
+
+local getreg = debug.getregistry or getreg
+
+if not getreg then
+    warn("Your exploit does not support the functions required for this script")
+end
+
+local make_writeable = setreadonly or make_writeable or changereadonly or change_writeable
+
+function hax()
+    for _,o in pairs(getreg()) do
+        if typeof(o) == "table" then
+            make_writeable(o,false)
+            o.FireRate = 0
+            o.AutoFire = true
+            o.Range = 10000
+            o.ReloadTime = 0
+            o.Damage = 500
+            o.MaxAmmo = math.huge
+            o.CurrentAmmo = math.huge
+            o.StoredAmmo = math.huge
+        end
+    end
+end
+
+hax()
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+    hax()
+end)
+end)
 
 TextLabel_10.Parent = ModAllGuns
 TextLabel_10.AnchorPoint = Vector2.new(0.5, 0.5)

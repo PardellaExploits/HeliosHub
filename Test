@@ -8,9 +8,9 @@ local Main = Instance.new("ImageButton")
 local Bar = Instance.new("ImageButton")
 local TextLabel = Instance.new("TextLabel")
 local LocalPlayerFrame = Instance.new("ImageButton")
-local Button = Instance.new("ImageButton")
+local FlyButton = Instance.new("ImageButton")
 local TextLabel_2 = Instance.new("TextLabel")
-local Button_2 = Instance.new("ImageButton")
+local NoclipButton = Instance.new("ImageButton")
 local TextLabel_3 = Instance.new("TextLabel")
 local Guns = Instance.new("ImageButton")
 local TextLabel_4 = Instance.new("TextLabel")
@@ -23,6 +23,11 @@ local Remington870 = Instance.new("ImageButton")
 local TextLabel_7 = Instance.new("TextLabel")
 local AK47 = Instance.new("ImageButton")
 local TextLabel_8 = Instance.new("TextLabel")
+local Mods = Instance.new("ImageButton")
+local TextLabel_9 = Instance.new("TextLabel")
+local ModsFrame = Instance.new("ImageButton")
+local ModAllGuns = Instance.new("ImageButton")
+local TextLabel_10 = Instance.new("TextLabel")
 
 --Properties:
 
@@ -74,100 +79,100 @@ LocalPlayerFrame.ImageColor3 = Color3.fromRGB(45, 45, 45)
 LocalPlayerFrame.ScaleType = Enum.ScaleType.Slice
 LocalPlayerFrame.SliceCenter = Rect.new(4, 4, 252, 252)
 
-Button.Name = "Button"
-Button.Parent = LocalPlayerFrame
-Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-Button.BackgroundTransparency = 1.000
-Button.Position = UDim2.new(0.0545454547, 0, 0.0433604419, 0)
-Button.Size = UDim2.new(0, 453, 0, 40)
-Button.Image = "rbxassetid://2790389767"
-Button.ImageColor3 = Color3.fromRGB(35, 35, 35)
-Button.ScaleType = Enum.ScaleType.Slice
-Button.SliceCenter = Rect.new(8, 8, 248, 248)
-Button.MouseButton1Click:connect(function()
+FlyButton.Name = "FlyButton"
+FlyButton.Parent = LocalPlayerFrame
+FlyButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+FlyButton.BackgroundTransparency = 1.000
+FlyButton.Position = UDim2.new(0.0545454547, 0, 0.0433604419, 0)
+FlyButton.Size = UDim2.new(0, 453, 0, 40)
+FlyButton.Image = "rbxassetid://2790389767"
+FlyButton.ImageColor3 = Color3.fromRGB(35, 35, 35)
+FlyButton.ScaleType = Enum.ScaleType.Slice
+FlyButton.SliceCenter = Rect.new(8, 8, 248, 248)
+FlyButton.MouseButton1Click:connect(function()
 	repeat wait()
-until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
-local mouse = game.Players.LocalPlayer:GetMouse()
-repeat wait() until mouse
-local plr = game.Players.LocalPlayer
-local torso = plr.Character.Torso
-local flying = true
-local deb = true
-local ctrl = {f = 0, b = 0, l = 0, r = 0}
-local lastctrl = {f = 0, b = 0, l = 0, r = 0}
-local maxspeed = 50
-local speed = 0
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+	local mouse = game.Players.LocalPlayer:GetMouse()
+	repeat wait() until mouse
+	local plr = game.Players.LocalPlayer
+	local torso = plr.Character.Torso
+	local flying = true
+	local deb = true
+	local ctrl = {f = 0, b = 0, l = 0, r = 0}
+	local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+	local maxspeed = 50
+	local speed = 0
 
-function Fly()
-local bg = Instance.new("BodyGyro", torso)
-bg.P = 9e4
-bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-bg.cframe = torso.CFrame
-local bv = Instance.new("BodyVelocity", torso)
-bv.velocity = Vector3.new(0,0.1,0)
-bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
-repeat wait()
-plr.Character.Humanoid.PlatformStand = true
-if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
-speed = speed+.5+(speed/maxspeed)
-if speed > maxspeed then
-speed = maxspeed
-end
-elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
-speed = speed-1
-if speed < 0 then
-speed = 0
-end
-end
-if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
-bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
-elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
-bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-else
-bv.velocity = Vector3.new(0,0.1,0)
-end
-bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
-until not flying
-ctrl = {f = 0, b = 0, l = 0, r = 0}
-lastctrl = {f = 0, b = 0, l = 0, r = 0}
-speed = 0
-bg:Destroy()
-bv:Destroy()
-plr.Character.Humanoid.PlatformStand = false
-end
-mouse.KeyDown:connect(function(key)
-if key:lower() == "t" then
-if flying then flying = false
-else
-flying = true
-Fly()
-end
-elseif key:lower() == "w" then
-ctrl.f = 1
-elseif key:lower() == "s" then
-ctrl.b = -1
-elseif key:lower() == "a" then
-ctrl.l = -1
-elseif key:lower() == "d" then
-ctrl.r = 1
-end
-end)
-mouse.KeyUp:connect(function(key)
-if key:lower() == "w" then
-ctrl.f = 0
-elseif key:lower() == "s" then
-ctrl.b = 0
-elseif key:lower() == "a" then
-ctrl.l = 0
-elseif key:lower() == "d" then
-ctrl.r = 0
-end
-end)
-Fly()
+	function Fly()
+		local bg = Instance.new("BodyGyro", torso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = torso.CFrame
+		local bv = Instance.new("BodyVelocity", torso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		repeat wait()
+			plr.Character.Humanoid.PlatformStand = true
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0.1,0)
+			end
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		until not flying
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+	end
+	mouse.KeyDown:connect(function(key)
+		if key:lower() == "t" then
+			if flying then flying = false
+			else
+				flying = true
+				Fly()
+			end
+		elseif key:lower() == "w" then
+			ctrl.f = 1
+		elseif key:lower() == "s" then
+			ctrl.b = -1
+		elseif key:lower() == "a" then
+			ctrl.l = -1
+		elseif key:lower() == "d" then
+			ctrl.r = 1
+		end
+	end)
+	mouse.KeyUp:connect(function(key)
+		if key:lower() == "w" then
+			ctrl.f = 0
+		elseif key:lower() == "s" then
+			ctrl.b = 0
+		elseif key:lower() == "a" then
+			ctrl.l = 0
+		elseif key:lower() == "d" then
+			ctrl.r = 0
+		end
+	end)
+	Fly()
 end)
 
-TextLabel_2.Parent = Button
+TextLabel_2.Parent = FlyButton
 TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.BackgroundTransparency = 1.000
@@ -179,35 +184,35 @@ TextLabel_2.Text = "Fly 'T'"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextSize = 14.000
 
-Button_2.Name = "Button"
-Button_2.Parent = LocalPlayerFrame
-Button_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-Button_2.BackgroundTransparency = 1.000
-Button_2.Position = UDim2.new(0.0545454547, 0, 0.168021679, 0)
-Button_2.Size = UDim2.new(0, 453, 0, 40)
-Button_2.Image = "rbxassetid://2790389767"
-Button_2.ImageColor3 = Color3.fromRGB(35, 35, 35)
-Button_2.ScaleType = Enum.ScaleType.Slice
-Button_2.SliceCenter = Rect.new(8, 8, 248, 248)
-Button_2.MouseButton1Click:connect(function()
+NoclipButton.Name = "NoclipButton"
+NoclipButton.Parent = LocalPlayerFrame
+NoclipButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+NoclipButton.BackgroundTransparency = 1.000
+NoclipButton.Position = UDim2.new(0.0545454547, 0, 0.168021679, 0)
+NoclipButton.Size = UDim2.new(0, 453, 0, 40)
+NoclipButton.Image = "rbxassetid://2790389767"
+NoclipButton.ImageColor3 = Color3.fromRGB(35, 35, 35)
+NoclipButton.ScaleType = Enum.ScaleType.Slice
+NoclipButton.SliceCenter = Rect.new(8, 8, 248, 248)
+NoclipButton.MouseButton1Click:connect(function()
 	noclip = false
-game:GetService('RunService').Stepped:connect(function()
-if noclip then
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-end
-end)
-plr = game.Players.LocalPlayer
-mouse = plr:GetMouse()
-mouse.KeyDown:connect(function(key)
+	game:GetService('RunService').Stepped:connect(function()
+		if noclip then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
+	plr = game.Players.LocalPlayer
+	mouse = plr:GetMouse()
+	mouse.KeyDown:connect(function(key)
 
-if key == "e" then
-noclip = not noclip
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-end
-end)
+		if key == "e" then
+			noclip = not noclip
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
 end)
 
-TextLabel_3.Parent = Button_2
+TextLabel_3.Parent = NoclipButton
 TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
 TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_3.BackgroundTransparency = 1.000
@@ -232,6 +237,7 @@ Guns.SliceCenter = Rect.new(4, 4, 252, 252)
 Guns.MouseButton1Click:connect(function()
 	LocalPlayerFrame.Visible = false;
 	GunsFrame.Visible = true;
+	ModsFrame.Visible = false;
 end)
 
 TextLabel_4.Parent = Guns
@@ -259,6 +265,7 @@ LocalPlayer.SliceCenter = Rect.new(4, 4, 252, 252)
 LocalPlayer.MouseButton1Click:connect(function()
 	LocalPlayerFrame.Visible = true;
 	GunsFrame.Visible = false;
+	ModsFrame.Visible = false;
 end)
 
 TextLabel_5.Parent = LocalPlayer
@@ -272,6 +279,7 @@ TextLabel_5.Font = Enum.Font.GothamSemibold
 TextLabel_5.Text = "👤 Local Player"
 TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_5.TextSize = 14.000
+
 
 GunsFrame.Name = "GunsFrame"
 GunsFrame.Parent = Main
@@ -362,9 +370,72 @@ TextLabel_8.Text = "AK-47"
 TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_8.TextSize = 14.000
 
+Mods.Name = "Mods"
+Mods.Parent = Main
+Mods.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Mods.BackgroundTransparency = 1.000
+Mods.Position = UDim2.new(0.0130333919, 0, 0.383248717, 0)
+Mods.Size = UDim2.new(0, 161, 0, 40)
+Mods.Image = "rbxassetid://2790382281"
+Mods.ImageColor3 = Color3.fromRGB(35, 35, 35)
+Mods.ScaleType = Enum.ScaleType.Slice
+Mods.SliceCenter = Rect.new(4, 4, 252, 252)
+Mods.MouseButton1Click:connect(function()
+	LocalPlayerFrame.Visible = false;
+	GunsFrame.Visible = false;
+	ModsFrame.Visible = true;
+end)
+
+TextLabel_9.Parent = Mods
+TextLabel_9.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.BackgroundTransparency = 1.000
+TextLabel_9.BorderSizePixel = 0
+TextLabel_9.Position = UDim2.new(0.484701395, 0, 0.5, 0)
+TextLabel_9.Size = UDim2.new(0.963122427, -5, 1, -5)
+TextLabel_9.Font = Enum.Font.GothamSemibold
+TextLabel_9.Text = "⚙️ Mods"
+TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.TextSize = 14.000
+
+ModsFrame.Name = "ModsFrame"
+ModsFrame.Parent = Main
+ModsFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ModsFrame.BackgroundTransparency = 1.000
+ModsFrame.Position = UDim2.new(0.256379068, 0, 0.0337972119, 0)
+ModsFrame.Size = UDim2.new(0, 495, 0, 369)
+ModsFrame.Visible = false
+ModsFrame.Image = "rbxassetid://2790382281"
+ModsFrame.ImageColor3 = Color3.fromRGB(45, 45, 45)
+ModsFrame.ScaleType = Enum.ScaleType.Slice
+ModsFrame.SliceCenter = Rect.new(4, 4, 252, 252)
+
+ModAllGuns.Name = "ModAllGuns"
+ModAllGuns.Parent = ModsFrame
+ModAllGuns.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+ModAllGuns.BackgroundTransparency = 1.000
+ModAllGuns.Position = UDim2.new(0.0545454547, 0, 0.0433604419, 0)
+ModAllGuns.Size = UDim2.new(0, 453, 0, 40)
+ModAllGuns.Image = "rbxassetid://2790389767"
+ModAllGuns.ImageColor3 = Color3.fromRGB(35, 35, 35)
+ModAllGuns.ScaleType = Enum.ScaleType.Slice
+ModAllGuns.SliceCenter = Rect.new(8, 8, 248, 248)
+
+TextLabel_10.Parent = ModAllGuns
+TextLabel_10.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_10.BackgroundTransparency = 1.000
+TextLabel_10.BorderSizePixel = 0
+TextLabel_10.Position = UDim2.new(0.504043818, 0, 0.474999994, 0)
+TextLabel_10.Size = UDim2.new(1, -5, 1, -5)
+TextLabel_10.Font = Enum.Font.GothamSemibold
+TextLabel_10.Text = "Mod All Guns"
+TextLabel_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_10.TextSize = 14.000
+
 -- Scripts:
 
-local function CBGBVXV_fake_script() -- Main.Dragify 
+local function QVWZKIZ_fake_script() -- Main.Dragify 
 	local script = Instance.new('LocalScript', Main)
 
 	local UIS = game:GetService("UserInputService")
@@ -405,4 +476,4 @@ local function CBGBVXV_fake_script() -- Main.Dragify
 	
 	dragify(script.Parent)
 end
-coroutine.wrap(CBGBVXV_fake_script)()
+coroutine.wrap(QVWZKIZ_fake_script)()
